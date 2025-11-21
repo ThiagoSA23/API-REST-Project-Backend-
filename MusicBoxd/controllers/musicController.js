@@ -103,7 +103,6 @@ const updateMusic = async (req, res) => {
             });
         }
 
-        // Verificar autorização
         if (music.usuario.toString() !== req.user._id.toString()) {
             return res.status(403).json({
                 success: false,
@@ -141,7 +140,6 @@ const deleteMusic = async (req, res) => {
             });
         }
 
-        // Verificar autorização
         if (music.usuario.toString() !== req.user._id.toString()) {
             return res.status(403).json({
                 success: false,

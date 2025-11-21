@@ -92,7 +92,6 @@ const updateAlbum = async (req, res) => {
             });
         }
 
-        // Verificar autorização
         if (album.usuario.toString() !== req.user._id.toString()) {
             return res.status(403).json({
                 success: false,
@@ -130,7 +129,6 @@ const deleteAlbum = async (req, res) => {
             });
         }
 
-        // Verificar autorização
         if (album.usuario.toString() !== req.user._id.toString()) {
             return res.status(403).json({
                 success: false,

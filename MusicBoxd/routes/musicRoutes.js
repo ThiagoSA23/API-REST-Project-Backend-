@@ -33,11 +33,9 @@ const musicValidation = [
         .withMessage('Data de lançamento deve estar em formato ISO8601')
 ];
 
-// Rotas públicas
 router.get('/', getAllMusics);
 router.get('/:id', getMusicById);
 
-// Rotas protegidas
 router.post('/', protect, musicValidation, handleValidationErrors, createMusic);
 router.put('/:id', protect, musicValidation, handleValidationErrors, updateMusic);
 router.delete('/:id', protect, deleteMusic);

@@ -6,13 +6,12 @@ const {
     getAlbumById,
     updateAlbum,
     deleteAlbum
-} = require('./controllers/albumController');
+} = require('../controllers/albumController');
 const { protect } = require('../middlewares/authMiddleware');
 const { handleValidationErrors } = require('../middlewares/validationMiddleware');
 
 const router = express.Router();
 
-// Validações comuns
 const albumValidation = [
     body('titulo')
         .trim()
@@ -30,11 +29,9 @@ const albumValidation = [
         .withMessage('Data de lançamento deve estar em formato ISO8601')
 ];
 
-// Rotas públicas
 router.get('/', getAllAlbums);
 router.get('/:id', getAlbumById);
 
-// Rotas protegidas
 router.post('/', protect, albumValidation, handleValidationErrors, createAlbum);
 router.put('/:id', protect, albumValidation, handleValidationErrors, updateAlbum);
 router.delete('/:id', protect, deleteAlbum);

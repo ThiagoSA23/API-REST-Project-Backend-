@@ -24,7 +24,6 @@ describe('Album Controller', () => {
         await Album.deleteMany({});
         await User.deleteMany({});
 
-        // Criar usuário de teste
         const registerRes = await request(app)
             .post('/api/auth/register')
             .send({
